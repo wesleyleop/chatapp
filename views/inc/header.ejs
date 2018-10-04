@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Existbet</title>
+	<meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="robots" content="index, follow"/>
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    
+    <link rel="stylesheet" href="<%=basepath%>assets/css/app.css" />
+    <link rel="stylesheet" href="<%=basepath%>assets/css/main.css" />
+
+</head>
+<body class="jackpot">
+<!-- HEADER START -->
+<header class="section-header blur-content">
+	<div class="col-left x-col-header-left">
+		<div class="header-left">
+			<div class="header-logo wow slideInLeft" data-wow-delay="0.1s">
+				<a href="/"><img src="<%=basepath%>assets/images/logo.png" style="width:50px;" alt=""></a>
+			</div>			
+		</div>
+	</div>
+	<div class="col-center x-col-header-center">
+		<div class="header-center">
+			<ul class="header-menu">
+				<li class="wow fadeInDown" data-wow-delay="0.2s"><a href="#">JACKPOT</a></li>
+				<li class="wow fadeInDown" data-wow-delay="0.3s"><a href="#">COINFLIP</a></li>
+				<li class="wow fadeInDown" data-wow-delay="0.4s"><a href="#">SUPPORT</a></li>
+			</ul>
+		</div>
+		<button class="hamburger hamburger--squeeze menu-toggle-button" id="menu-toggle" data-toggle="active" data-target="#menu-mobile" type="button">
+		<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+		</button>
+		<div class="col-right x-col-header-right">
+			<div class="header-right">
+      <% if(!loggedIn){%>
+				<a href="javascript://" data-action="login" class="btn-steam gradient-steam wow fadeInDown" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
+          <span>Sign in</span>
+        </a>
+      <% }else{%>
+        <div class="user-box">
+				<div class="user-box-bg">
+					<div class="user-box-selector">
+						<div class="user-box-selector-ava">
+							<img src="<%=basepath%>assets/images/default.png" alt="">
+						</div>
+						<div class="user-box-selector-name" style="white-space: nowrap;text-overflow: ellipsis;">[<span id="balance">0.00</span>$]<%=data.full_name%></div>
+						<div class="user-box-selector-drop"></div>
+					</div>
+				</div>
+
+				<div class="user-box-drop" style="text-align: left;padding-left:20px;padding-right:20px;">
+					<!--<a href="/profile"><i class="fa fa-user"></i> Edit info</a>
+					<a href="/profile"><i class="fa fa-arrow-circle-down"></i> Deposit</a>
+					<a href="/profile"><i class="fa fa-arrow-circle-up"></i> Withdraw</a>
+					<div class="user-box-drop-sep"></div>-->
+					<a href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
+				</div>
+			</div>
+      <% } %>
+			</div>
+		</div>
+	</div>
+</header>
+<div id="menu-mobile" class="mobile-menu">
+	<a class="mobile-menu-logo"><!--<img src="<%=basepath%>assets/images/logo.png" alt="">--></a>
+	<ul class="mobile-menu-list">
+		<li><a href="#">JACKPOT</a></li>
+		<li><a href="#">COINFLIP</a></li>
+		<li><a href="#">SUPPORT</a></li>
+    <% if(loggedIn){ %>
+    <li><a href="/logout">LOGOUT</a></li>
+    <% }else{ %>
+		<li><a href="javascript://" data-action="login">LOGIN / REGISTER</a></li>
+    <% } %>
+	</ul>
+</div>
+<!-- HEADER END -->

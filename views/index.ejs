@@ -1,0 +1,218 @@
+<% include inc/header %>
+<div class="section-body blur-content" id="body">
+	<div class="chat-over-btn">
+		<div class="chat-header-arrow wow fadeInUp chat-open-close" data-wow-delay="0.3s"><span></span></div>
+	</div>
+	<div class="col-left col-flex x-col-chart">
+		<div class="box-content">
+			<div class="box-header">
+				<div class="jac-header">
+					<div class="jac-text jac-left wow fadeInDown" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInDown;">Your chance: <span class="text-color-white"><span id="jackpot_user_chance">0</span>%</span></div>
+
+					<div class="arrows arrows-left wow fadeIn animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeIn;"></div>
+
+					<div class="jac-price wow fadeInDown" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInDown;">
+						<span class="jac-price-num text-purple">$<span id="jackpot_bank">881.00</span></span>
+						<span class="jac-price-text">JACKPOT</span>
+					</div>
+
+					<div class="arrows arrows-rigth wow fadeIn animated" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;"></div>
+
+					<div class="jac-text jac-right wow fadeInDown" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">Your deposit: <span class="text-color-purple" id="jackpot_user_deposit">0</span>  <span class="text-color-white">$</span></div>
+				</div>
+			</div>
+			<div class="box-body">
+				<div class="chart">
+        <!--
+					<div class="chart-inside wow flipInY" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: flipInY;">
+						<div class="chart-inside-box" id="jackpotCircle"><canvas width="240" height="240"></canvas></div>
+					</div>
+
+					<div id="chart" class="chart-pie wow flipInY" data-wow-delay="0.1s" style="overflow: hidden; text-align: left; visibility: visible; animation-delay: 0.1s; animation-name: flipInY;"><div style="position: relative;" class="amcharts-main-div"><div style="overflow: hidden; position: relative; text-align: left; width: 350px; height: 350px; padding: 0px; touch-action: auto;" class="amcharts-chart-div"><svg version="1.1" style="position: absolute; width: 350px; height: 350px; top: 0px; left: 0.350006px;"><desc>JavaScript chart by amCharts 3.21.12</desc><g><path cs="100,100" d="M0.5,0.5 L349.5,0.5 L349.5,349.5 L0.5,349.5 Z" fill="#FFFFFF" stroke="#000000" fill-opacity="0" stroke-width="1" stroke-opacity="0"></path></g><g></g><g></g><g></g><g></g><g></g><g><g aria-label="Maverick: 31.66% 31.66 "><path cs="1000,1000" d=" M75.4137969297845,219.31239282703882 L21.50933838719078,243.2979999536011 A168,168,0,0,1,174.99999999999997,7 L174.99999999999997,66 A109,109,0,0,0,75.4137969297845,219.31239282703882 Z" fill="rgb(26, 160, 244)" stroke="#1f1d2f" stroke-width="2" stroke-opacity="1" fill-opacity="1"></path></g><g aria-label="Maou: 44.38% 44.38 "><path cs="1000,1000" d=" M175,66 L175,7 A168,168,0,0,1,233.05418349239943,332.6506003129415 L212.6661071468544,277.2852109173251 A109,109,0,0,0,175,66 Z" fill="rgb(22, 253, 78)" stroke="#1f1d2f" stroke-width="2" stroke-opacity="1" fill-opacity="1"></path></g><g aria-label="Mudmaniac: 23.95% 23.95 "><path cs="1000,1000" d=" M212.6661071468544,277.2852109173251 L233.05418349239943,332.6506003129415 A168,168,0,0,1,21.50933838719078,243.2979999536011 L75.4137969297845,219.31239282703882 A109,109,0,0,0,212.6661071468544,277.2852109173251 Z" fill="rgb(253, 93, 21)" stroke="#1f1d2f" stroke-width="2" stroke-opacity="1" fill-opacity="1"></path></g></g><g></g><g></g><g></g><g></g><g></g><g><g></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg><a href="http://www.amcharts.com" title="JavaScript charts" target="_self" style="position: absolute; text-decoration: none; color: rgb(0, 0, 0); font-family: Verdana; font-size: 11px; opacity: 0.7; display: block; left: 5px; top: 5px;">JS chart by amCharts</a></div></div></div>
+
+					<div class="chart-center">
+						<div class="chart-time wow flipInY" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: flipInY; line-height: 120%;">
+							<div class="chart-time-text">TIME</div>
+							<div class="chart-time-num text-purple" id="jackpot_timer"><span>0</span><span>0</span>:<span>5</span><span>5</span></div>
+						</div>
+					</div>
+          -->
+          <div id="chartdiv" style=""></div>    
+
+				</div>
+				
+				<div class="chart-deposite wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">min <span class="text-color-purple">$50</span>, max. <span class="text-color-white">2 deposit</span>/round</div>
+				
+				<div class="form-btn-center wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+        <% if(loggedIn){ %>
+          <a href="javascript://" id="jackpot_deposit" class="form-btn form-btn-login gradient-purple"><span>Deposit</span></a>
+        <% }else{ %>
+					<a href="javascript://" data-action="login" class="form-btn form-btn-login gradient-purple"><span>LOGIN AND PLAY</span></a>
+        <% } %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-center col-flex x-col-center">
+		<div class="box-content">
+			<div class="rulet">
+				<div class="rulet-start">
+					<div class="arrows arrows-left wow fadeIn animated" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeIn;"></div>
+					<div class="round-via round-via-rulet">
+						<span class="text-purple wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">ROUND HASH</span>
+						<div class="round-via-hash wow fadeInUp" data-wow-delay="0.0s" style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">
+							<span id="jackpot_hash">9A2820B939C2F47609DECEE77F14F1BABD53EECCA63911847AFF211D48870B85</span> 
+							<a href="/fair" class="round-via-hash-info"><img src="assets/images/info.png" alt=""></a>
+						</div>
+					</div>
+					<div class="arrows arrows-rigth wow fadeIn animated" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeIn;"></div>
+				</div>
+				<a class="text-purple jackpot_history_btn" href="javascript://" id="jackpot_show_history"><span>History</span></a>
+			</div>
+			<div class="rulet jackpot_carousel" id="jackpot_carousel" style="display: none;">
+				<div class="rulet-over"></div>
+				<div class="rulet-line rulet-line-top"></div>
+				<div class="rulet-line rulet-line-center"></div>
+				<div class="rulet-line rulet-line-bottom"></div>
+			</div>
+			<div class="rulet-bottom-border"></div>
+			<div class="rulet-empty" id="jackpot_no_players" style="display: none;">
+				<p class="rulet-empty-text">There's no bets in pot. Be the first!</p>
+				<a href="javascript://" onclick="$('#jackpot_deposit').click();return false;" class="rulet-empty-link">Deposit</a>
+			</div>
+			<div class="box-body" id="jackpot_has_players" style="">
+			<!-- ITEMLIST START -->
+				<div class="weap_slide-content wow fadeInUp animated" id="jackpot_itembar" data-wow-delay="0.8s" style="display: none; visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+					<div class="weap_slide-arrow weap_slide-arrow-left gradient-purple light hover">
+						<span><i>«</i></span>
+					</div>
+					<div class="weap_slide-body">
+						<div class="swiper-container swiper-container-horizontal">
+							<div class="swiper-wrapper" id="jackpot_itemlist" style="transition-duration: 0ms;"></div>
+						</div>
+					</div>
+					<div class="weap_slide-arrow weap_slide-arrow-right gradient-purple light hover">
+						<span><i>»</i></span>
+					</div>
+				</div>
+			<!-- ITEMLIST END -->
+			<!-- USERBETS START -->
+				<div class="participants-list" id="jackpot_bets">
+					<div data-userid="6834794447" data-color="3" class="participants-item color-3 wow fadeInUp  animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+						<a href="javascript://" class="participants-avatar"><img src="assets/images/avatar/6834794447.jpg" alt=""></a>
+						<div class="participants-name">
+							Yasuo deposited <span class="text-color-purple text-bold">$<span class="price_total">360</span></span> with chance <span class="text-color-purple text-bold"><span class="chance">44.28</span>%</span>
+						</div>
+						<div class="participants-dot"></div>
+					</div>
+					<div data-userid="9972776668" data-color="2" class="participants-item color-2 wow fadeInUp  animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+						<a href="javascript://" class="participants-avatar"><img src="assets/images/avatar/9972776668.jpg" alt=""></a>
+						<div class="participants-name">
+							Justapub deposited <span class="text-color-purple text-bold">$<span class="price_total">75</span></span> with chance <span class="text-color-purple text-bold"><span class="chance">9.22</span>%</span>
+						</div>
+						<div class="participants-dot"></div>
+					</div>
+					<div data-userid="2796638914" data-color="1" class="participants-item color-1 wow fadeInUp  animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+						<a href="javascript://" class="participants-avatar"><img src="assets/images/avatar/2796638914.jpg" alt=""></a>
+						<div class="participants-name">
+							Bibabutzelbar deposited <span class="text-color-purple text-bold">$<span class="price_total">378</span></span> with chance <span class="text-color-purple text-bold"><span class="chance">46.49</span>%</span>
+						</div>
+						<div class="participants-dot"></div>
+					</div>
+				</div>
+			<!-- USERBETS END -->
+			</div>
+		</div>
+	</div>
+	<div class="jackpot_game" style="display:none;">
+		<div class="panel panel-default" style="width:1180px;margin:40px auto;">
+			<div class="panel-heading sell_tabs">
+				<div class="btn-group btn-group-sm">
+					<a href="javascript://" id="jackpot_show_history" class="btn btn-primary">Game history &gt;</a>
+				</div>
+				<h3 class="panel-title"><span class="glyphicon glyphicon-star"></span>&nbsp;Jackpot | GAME #<span id="jackpot_gameid">0</span></h3>
+			</div>
+			<div class="panel-body">
+				<div class="jackpot_heading">
+					<div class="jackpot_round_items">
+						<div class="jackpot_round_items_circle" id="jackpot_round_items"></div>
+						<div class="jackpot_round_timer">
+							<div class="jackpot_round_timer_circle" id="jackpot_round_timer"></div>
+							<div class="jackpot_bank_text"><span id="jackpot_bank">0</span>$</div>
+							<div class="jackpot_round_timer_text"><span id="jackpot_timer"><span>0</span><span>0</span>:<span>0</span><span>0</span></span></div>
+							<div class="jackpot_round_items_text"><span id="jackpot_items_count">0</span> / <span id="jackpot_items_max">0</span></div>
+						</div>
+					</div>
+					<div id="jackpot_last_winner" class="jackpot_last_winner"></div>
+				</div>
+			</div>
+			<div class="panel-footer jackpot_chances" id="jackpot_chances"></div>
+			<div class="panel-footer jackpot_carousel" id="jackpot_carousel"><div class="jackpot_carousel_items"></div></div>
+			<div class="panel-footer" style="text-align:right;position:relative;">
+				<div style="position:absolute;left:30px;top:0px;bottom:0;padding-right:30px;font-size:18px;line-height:74px;border-right:1px solid #ddd;">Your chance: <span id="jackpot_user_chance">0</span>%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max items per user: 12</div>
+				<a href="/login" class="btn btn-success btn-lg">Login through Steam</a>
+			</div>
+		</div>
+		<div style="width:1180px;margin:auto;margin-top:40px;" id="jackpot_game_end"></div>
+		<div style="width:1180px;margin:auto;" id="jackpot_bets"></div>
+		<div style="width:1180px;margin:auto;" id="jackpot_hash"></div>
+	</div>
+	<div class="jackpot_history" style="display:none;">
+		<div class="panel panel-default" style="width:1180px;margin:40px auto;">
+			<div class="panel-heading sell_tabs">
+				<div class="btn-group btn-group-sm"><a href="javascript://" id="jackpot_show_game" class="btn btn-primary">&lt; Back to game</a></div>
+				<h3 class="panel-title"><span class="glyphicon glyphicon-star"></span>&nbsp;Jackpot | GAME HISTORY</h3>
+			</div>
+			<div class="panel-body" id="jackpot_history"></div>
+		</div>
+	</div>	
+	<div class="col-right col-flex x-col-right x-col-chat">
+		<div class="box-content box-direction-top chat-box">
+			<div class="box-header">
+				<div class="chat-header">
+					<div class="chat-header-icon wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;"><img src="assets/images/chat-icon.png" class="ico-glow" alt=""></div>
+					<div class="chat-header-center">
+						<div class="chat-header-title text-purple wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">Chat</div>
+						<div class="chat-header-online text-green wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;"><span id="online_count">0</span> online</div>
+					</div>
+					<div class="chat-header-arrow wow fadeInUp chat-open-close" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;"><span></span></div>
+				</div>
+			</div>
+			<div class="box-body chat-body" id="chat">
+				<div class="chat-list"></div>
+				<div class="chat-write wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+        <%if(loggedIn){%>
+          <div style="" id="chat_form_enabled">
+						<textarea class="form-textarea chat-write-area" rows="2" placeholder="Type anything ..."></textarea>
+						<button class="form-btn chat-write-btn gradient-purple light"><span>SEND</span></button>
+					</div>
+        <% }else{ %>
+					<button type="button" data-action="login" class="form-btn chat-write-btn gradient-purple light"><span>SIGN IN</span></button>
+        <% } %>
+				</div>
+			</div>
+		</div>
+		<div class="box-content box-direction-bottom">
+			<div class="box-header box-header-simple">
+				<div class="box-header-simple-ico wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;"><img src="assets/images/gift-icon.png" class="ico-glow" alt=""></div>
+				<h3 class="box-header-simple-title text-purple wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">GIVEAWAY</h3>
+			</div>
+			<div class="gift-body">
+				<div class="gift-subject">
+					<div class="gift-subject-img wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+						<img src="assets/images/bitcoins2_large.jpg" style="height:70px;margin:8px;" alt="">
+					</div>
+					<div class="arrows arrows-left wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;"></div>
+					<div class="gift-subject-text">
+						<div class="gift-subject-name wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">BitCoin</div>
+						<div class="gift-subject-price text-purple wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">0.2 BTC</div>
+					</div>
+				</div>
+				<div class="form-btn-center wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+					<a class="form-btn  gradient-purple light"><span>participate</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<% include inc/footer %>

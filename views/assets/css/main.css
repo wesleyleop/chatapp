@@ -1,0 +1,86 @@
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #000 !important;
+}
+
+.item ul li{
+    display: inline;
+}
+
+.fadedown{
+    visibility: visible;
+    animation-delay: 0.1s;
+    animation-name: fadeInDown;
+}
+
+.fadeIn{
+	visibility: visible; 
+	animation-delay: 0.5s;
+    animation-name: fadeIn;
+}
+.flipInY{
+	overflow: hidden;
+	text-align: left;
+    visibility: visible; 
+    animation-delay: 0.1s; 
+    animation-name: flipInY;
+}
+
+.jackpot_timer{
+   visibility: visible; 
+   animation-delay: 0.5s;
+   animation-name: flipInY;
+   zoom:1.75;
+   line-height:120%;
+}
+
+.jackpot_itembar{
+	display:none;
+	visibility: visible;
+	animation-delay: 0.8s;
+    animation-name: fadeInUp;
+}
+
+.footerP{
+	text-align:right;
+	position:relative;
+}
+
+.user_chance{
+    position:absolute;
+    left:30px;
+    top:0px;
+    bottom:0;
+    padding-right:30px;
+    font-size:18px;
+    line-height:74px;
+    border-right:1px solid #ddd;
+}
+
+.text-purple{
+	 text-shadow: 0 0 15px #ba2777;
+     color: #f51a9d;
+     padding-top: -22px;
+     margin-top: 3px;
+}
+
+.bitcoins img{
+	height:70px;
+	margin:8px
+}
+
+.header-center {
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    margin-top: 5px;
+}
+
+#chartdiv {
+    width: 200%;  
+    height: 400px; 
+    margin-left:-180px;
+} 
